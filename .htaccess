@@ -1,0 +1,13 @@
+RewriteEngine On
+
+#Cette fichier nous permet de gerer les url
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# !-f(signifie non file) c pour ne pas afficher le nom du fichier mais plutot le contenue 
+
+#RewriteCond %{REQUEST_FILENAME} !-d
+
+#RewriteCond %{REQUEST_FILENAME} !-l
+
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
