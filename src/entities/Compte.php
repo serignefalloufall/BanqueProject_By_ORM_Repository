@@ -270,7 +270,7 @@ use Doctrine\ORM\Mapping as ORM;
 
                 return $this;
         }
-
+        
         /**
          * Get the value of etat
          */ 

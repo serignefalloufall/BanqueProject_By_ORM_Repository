@@ -17,16 +17,10 @@ use src\model\ClientDB;
             $data['listeTypeCompte'] = $comptedb->getListTypeComte();
             $data['listeAgence'] = $comptedb->getListAgence();
 
-           
-
-            
             //parametrage
             $data['today'] = date("d/m/y"); 
             $data['numcompte'] = 'Cmpt-'.$data['today']; 
             $data['cleRip'] = 'Cle-rip-'.$data['today']; 
-
-            
-            
 
             if(isset($_POST['btnAjouter']))
             {
@@ -39,8 +33,6 @@ use src\model\ClientDB;
 
                 if($_POST['type_compte_id'] == '1')
                 {
-
-                 
                   //1 represente typecompte epargne au niveau de la base
                   $compteObject->setNum_compte($num_compte);
 
@@ -60,7 +52,7 @@ use src\model\ClientDB;
                   $compteObject->setType_compte_id($typecompte);
       
                    //ici je recupere l objet client
-                  $client = $clientdb->getClientById($client_id);
+                  $client = $comptedb->getClientById($client_id);
  
                   $compteObject->setClient_id($client);
               
@@ -84,7 +76,7 @@ use src\model\ClientDB;
 
                   $compteObject->setAgio($agio);
 
-                  $compteObject->setDate_ouverture($frais_ouverture);
+                  $compteObject->setDate_ouverture($date_ouverture);
 
                   //ici je recupere l objet type compte
                   $typecompte = $comptedb->getTypeCompteById($type_compte_id);
@@ -92,7 +84,7 @@ use src\model\ClientDB;
                   $compteObject->setType_compte_id($typecompte);
 
                   //ici je recupere l objet client
-                  $client = $clientdb->getClientById($client_id);
+                  $client = $comptedb->getClientById($client_id);
 
                   $compteObject->setClient_id($client);
             
@@ -124,14 +116,14 @@ use src\model\ClientDB;
                    $compteObject->setType_compte_id($typecompte);
  
                    //ici je recupere l objet client
-                  $client = $clientdb->getClientById($client_id);  
+                  $client = $comptedb->getClientById($client_id);  
                   $compteObject->setClient_id($client);
           
                   $resultat = $comptedb->addCompteBloque($compteObject);
 
                   $data['ok'] = $resultat;
 
-                  return $this->view->load("client/add", $data);
+                  return $this->view->load("compte/add", $data);
                 }
               
             }else{

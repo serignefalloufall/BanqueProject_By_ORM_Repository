@@ -9,7 +9,7 @@
 
 <?php
 if(isset($ok)){
-    if($ok == 1){
+    if($ok != 0){
         
         echo "<div style='margin-top: 410px; font-size: 35px; color:#02a1a1; margin-left: 130px;'>Client inseré avec succès</div>";
     }else{

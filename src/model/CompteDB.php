@@ -15,6 +15,7 @@ class CompteDB extends Model
     function addCompteEpargne($compte)
     {//on donne a notre fonction comme prametre un objet
 
+
         $this->db->persist($compte);
         $this->db->flush();
         return $compte->getId();
@@ -33,6 +34,8 @@ class CompteDB extends Model
 
     function addCompteBloque($compte)
     {//on donne a notre fonction comme prametre un objet
+
+
         
         $this->db->persist($compte);
         $this->db->flush();
@@ -78,7 +81,21 @@ class CompteDB extends Model
 				die("Objet ".$id." does not existe!");
 			}
 		}
-	}
+    }
+    
+    public function getClientById($id)
+    {
+		if($this->db != null)
+		{
+			$cli = $this->db->find('Client', $id);
+			if($cli != null)
+			{
+                return $cli;
+			}else {
+				die("Objet ".$id." does not existe!");
+			}
+		}
+    }
     
 }
 ?>
