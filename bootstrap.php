@@ -4,7 +4,7 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
 require_once "vendor/autoload.php";
-
+function getEntity(){
 // Create a simple "default" Doctrine ORM configuration for Annotations
 $isDevMode = true;
 $proxyDir = null;
@@ -25,3 +25,5 @@ $conn = array(
 );
 // obtaining the entity manager
 $entityManager = EntityManager::create($conn, $config);  
+return $entityManager;
+}

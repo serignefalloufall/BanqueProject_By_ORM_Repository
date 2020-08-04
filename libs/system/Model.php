@@ -3,12 +3,12 @@ namespace libs\system;
 
 class Model
 {
-    protected $entityManager;
+    protected $db;
 
     public function __construct()
     {
         require_once "bootstrap.php";
-        $this->entityManager = $entityManager;
+        $this->db = getEntity();
     }
     
 }

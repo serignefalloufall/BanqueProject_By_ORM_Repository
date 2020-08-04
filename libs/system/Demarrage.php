@@ -13,16 +13,15 @@ class Demarrage
             $controller_file = "src/controller/".$url[0]."Controller.php";
 
             if (file_exists($controller_file)) {
+
                 require_once $controller_file;
 
                 $file = $url[0]."Controller";
 
-                $namespace = "src\controller\\";
-
-                $ok = $namespace.$file;
+                // $namespace = "src\controller\\";
+                // $ok = $namespace.$file;
                 
-
-                $controller_object = new $ok();
+                $controller_object = new $file();
 
                 if (isset($url[2])) //$url[2] represente les prams du methode
                 {
@@ -44,7 +43,7 @@ class Demarrage
                     }
                 }
             } else {
-                die($controller_file."  n'existe pas");
+                die($controller_file." n'existe pas");
             }
         } else {
             echo "Bienvenue!!!!!!!";
