@@ -1,8 +1,5 @@
 <?php
 
-// namespace src\entities;
-
-
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -34,7 +31,7 @@ class Typeclient
         //Definition des constructeur
         public function __construct()
         {
-            $this->clients = new ArrayCollection();
+                $this->clients = new ArrayCollection();
         }
 
         /**

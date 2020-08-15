@@ -10,30 +10,14 @@ use src\model\ClientDB;
         
         public function add()
         {
-        
-           
-
             $clientdb = new ClientDB();// l'objet $clientdb c pour acceder au methode qui se trouve class TestDB
-
             $data['listeTypeClient'] = $clientdb->getListTypeClient();
             $data['listeEmployeur'] = $clientdb->getListEmployeur();
 
-          // $data['tclient'] = $clientdb->getTypeClientById(2);
-
-            // $tclient = $data['tclient'];
-            // echo $tclient->getId()." "."<br/>";
-            // echo $tclient->getLibelle()." "."<br/>";
-            //     echo $r->getNom_employeur()." "."<br/>";
-            // foreach( $listes as $r){
-            //     echo $r->getId()." "."<br/>";
-            //     echo $r->getNom_employeur()." "."<br/>";
-                
-            // }
-            // var_dump($data['tclient']);
-            // die;
             if(isset($_POST['btnAjouter']))
             {
                 extract($_POST);
+                
                 $employeurObject = new Employeur();//ici on cree un objet 
 
                 $clientObject = new Client();//ici on cree un objet 
@@ -118,4 +102,3 @@ use src\model\ClientDB;
            
         }  
     }
-?>

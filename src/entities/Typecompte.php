@@ -1,28 +1,25 @@
 <?php
 
-// namespace src\entities;
-
-
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
-     /**
-    * @ORM\Entity
-    * @ORM\Table(name="typecompte")
-    */
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="typecompte")
+ */
 
 
-    class Typecompte
-    {
-         /** 
+class Typecompte
+{
+        /** 
          * @ORM\Id
          * @ORM\Column(type="integer")
          * @ORM\GeneratedValue
-        */
+         */
         private $id;
         /** 
          * @ORM\Column(type="string") 
-        */
+         */
         private $libelle;
 
         /**
@@ -30,16 +27,16 @@ use Doctrine\Common\Collections\ArrayCollection;
          * @ORM\OneToMany(targetEntity="Compte", mappedBy="type_compte_id")
          */
         private $comptes;
-      
-         //Definition des constructeur
+
+        //Definition des constructeur
         public function __construct()
         {
                 $this->comptes = new ArrayCollection();
         }
 
-         /**
+        /**
          * Get the value of id
-         */ 
+         */
         public function getId()
         {
                 return $this->id;
@@ -49,7 +46,7 @@ use Doctrine\Common\Collections\ArrayCollection;
          * Set the value of id
          *
          * @return  self
-         */ 
+         */
         public function setId($id)
         {
                 $this->id = $id;
@@ -59,7 +56,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
         /**
          * Get the value of libelle
-         */ 
+         */
         public function getLibelle()
         {
                 return $this->libelle;
@@ -69,13 +66,11 @@ use Doctrine\Common\Collections\ArrayCollection;
          * Set the value of libelle
          *
          * @return  self
-         */ 
+         */
         public function setLibelle($libelle)
         {
                 $this->libelle = $libelle;
 
                 return $this;
         }
-    }
-
-?>
+}

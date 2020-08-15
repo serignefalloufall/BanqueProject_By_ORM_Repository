@@ -1,4 +1,5 @@
 <?php
+
 namespace libs\system;
 
 class Model
@@ -10,6 +11,4 @@ class Model
         require_once "bootstrap.php";
         $this->db = getEntity();
     }
-    
 }
-?>

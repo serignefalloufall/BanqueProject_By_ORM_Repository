@@ -1,61 +1,60 @@
 <?php
 
-
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
-    /**
-    * @ORM\Entity
-    * @ORM\Table(name="client")
-    */
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="client")
+ */
 
-    class Client
-    {
+class Client
+{
         /** 
          * @ORM\Id
          * @ORM\Column(type="integer")
          * @ORM\GeneratedValue
-        */
+         */
         private $id;
 
-         /** 
+        /** 
          * @ORM\Column(type="string") 
-        */
+         */
         private $nom;
 
-         /** 
+        /** 
          * @ORM\Column(type="string") 
-        */
+         */
         private $prenom;
 
-         /** 
+        /** 
          * @ORM\Column(type="string") 
-        */
+         */
         private $adresse;
 
-         /** 
+        /** 
          * @ORM\Column(type="string") 
-        */
+         */
         private $tel;
 
-         /** 
+        /** 
          * @ORM\Column(type="string") 
-        */
+         */
         private $email;
 
-         /** 
+        /** 
          * @ORM\Column(type="string") 
-        */
+         */
         private $profession;
 
         /** 
          * @ORM\Column(type="decimal") 
-        */
+         */
         private $salaire;
-        
-         /** 
+
+        /** 
          * @ORM\Column(type="string") 
-        */
+         */
         private $password;
 
         /**
@@ -64,32 +63,32 @@ use Doctrine\Common\Collections\ArrayCollection;
          */
         private $comptes;
 
-          /**
+        /**
          * Many client have one typeclient. This is the owning side.
          * @ORM\ManyToOne(targetEntity="Typeclient", inversedBy="clients")
          * @ORM\JoinColumn(name="type_client_id", referencedColumnName="id")
          */
         private $type_client_id;
 
-           /**
+        /**
          * Many client have one employeur. This is the owning side.
          * @ORM\ManyToOne(targetEntity="Employeur", inversedBy="clients")
          * @ORM\JoinColumn(name="employeur_id", referencedColumnName="id")
          */
         private $employeur_id;
-      
 
 
-         //Definition des constructeur
+
+        //Definition des constructeur
         public function __construct()
         {
                 $this->comptes = new ArrayCollection();
         }
 
-        
+
         /**
          * Get the value of id
-         */ 
+         */
         public function getId()
         {
                 return $this->id;
@@ -99,7 +98,7 @@ use Doctrine\Common\Collections\ArrayCollection;
          * Set the value of id
          *
          * @return  self
-         */ 
+         */
         public function setId($id)
         {
                 $this->id = $id;
@@ -109,7 +108,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
         /**
          * Get the value of nom
-         */ 
+         */
         public function getNom()
         {
                 return $this->nom;
@@ -119,7 +118,7 @@ use Doctrine\Common\Collections\ArrayCollection;
          * Set the value of nom
          *
          * @return  self
-         */ 
+         */
         public function setNom($nom)
         {
                 $this->nom = $nom;
@@ -129,7 +128,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
         /**
          * Get the value of prenom
-         */ 
+         */
         public function getPrenom()
         {
                 return $this->prenom;
@@ -139,7 +138,7 @@ use Doctrine\Common\Collections\ArrayCollection;
          * Set the value of prenom
          *
          * @return  self
-         */ 
+         */
         public function setPrenom($prenom)
         {
                 $this->prenom = $prenom;
@@ -149,7 +148,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
         /**
          * Get the value of adresse
-         */ 
+         */
         public function getAdresse()
         {
                 return $this->adresse;
@@ -159,7 +158,7 @@ use Doctrine\Common\Collections\ArrayCollection;
          * Set the value of adresse
          *
          * @return  self
-         */ 
+         */
         public function setAdresse($adresse)
         {
                 $this->adresse = $adresse;
@@ -169,7 +168,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
         /**
          * Get the value of tel
-         */ 
+         */
         public function getTel()
         {
                 return $this->tel;
@@ -179,7 +178,7 @@ use Doctrine\Common\Collections\ArrayCollection;
          * Set the value of tel
          *
          * @return  self
-         */ 
+         */
         public function setTel($tel)
         {
                 $this->tel = $tel;
@@ -189,7 +188,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
         /**
          * Get the value of email
-         */ 
+         */
         public function getEmail()
         {
                 return $this->email;
@@ -199,7 +198,7 @@ use Doctrine\Common\Collections\ArrayCollection;
          * Set the value of email
          *
          * @return  self
-         */ 
+         */
         public function setEmail($email)
         {
                 $this->email = $email;
@@ -209,7 +208,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
         /**
          * Get the value of profession
-         */ 
+         */
         public function getProfession()
         {
                 return $this->profession;
@@ -219,7 +218,7 @@ use Doctrine\Common\Collections\ArrayCollection;
          * Set the value of profession
          *
          * @return  self
-         */ 
+         */
         public function setProfession($profession)
         {
                 $this->profession = $profession;
@@ -229,7 +228,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
         /**
          * Get the value of salaire
-         */ 
+         */
         public function getSalaire()
         {
                 return $this->salaire;
@@ -239,7 +238,7 @@ use Doctrine\Common\Collections\ArrayCollection;
          * Set the value of salaire
          *
          * @return  self
-         */ 
+         */
         public function setSalaire($salaire)
         {
                 $this->salaire = $salaire;
@@ -249,7 +248,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
         /**
          * Get the value of password
-         */ 
+         */
         public function getPassword()
         {
                 return $this->password;
@@ -259,7 +258,7 @@ use Doctrine\Common\Collections\ArrayCollection;
          * Set the value of password
          *
          * @return  self
-         */ 
+         */
         public function setPassword($password)
         {
                 $this->password = $password;
@@ -269,7 +268,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
         /**
          * Get the value of type_client_id
-         */ 
+         */
         public function getType_client_id()
         {
                 return $this->type_client_id;
@@ -279,7 +278,7 @@ use Doctrine\Common\Collections\ArrayCollection;
          * Set the value of type_client_id
          *
          * @return  self
-         */ 
+         */
         public function setType_client_id($type_client_id)
         {
                 $this->type_client_id = $type_client_id;
@@ -289,7 +288,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
         /**
          * Get the value of employeur_id
-         */ 
+         */
         public function getEmployeur_id()
         {
                 return $this->employeur_id;
@@ -299,7 +298,7 @@ use Doctrine\Common\Collections\ArrayCollection;
          * Set the value of employeur_id
          *
          * @return  self
-         */ 
+         */
         public function setEmployeur_id($employeur_id)
         {
                 $this->employeur_id = $employeur_id;
@@ -309,7 +308,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
         /**
          * Get one client has many comptes. This is the inverse side.
-         */ 
+         */
         public function getComptes()
         {
                 return $this->comptes;
@@ -319,13 +318,11 @@ use Doctrine\Common\Collections\ArrayCollection;
          * Set one client has many comptes. This is the inverse side.
          *
          * @return  self
-         */ 
+         */
         public function setComptes($comptes)
         {
                 $this->comptes = $comptes;
 
                 return $this;
         }
-    }
-
-?>
+}

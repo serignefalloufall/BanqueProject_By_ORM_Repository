@@ -3,8 +3,9 @@
 namespace libs\system;
 
 class Bootstrap
-{ 
-    public function boot(){
+{
+    public function boot()
+    {
         echo "tabaski arrive";
     }
     public function __construct()
@@ -25,7 +26,7 @@ class Bootstrap
             //     $namespace = "src\controller\\";
 
             //     $ok = $namespace . $file;
-                
+
 
             //     $controller_object = new $ok();
 
@@ -56,4 +57,3 @@ class Bootstrap
         }
     }
 }
-?>

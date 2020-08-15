@@ -1,6 +1,6 @@
 <?php
 //namespace src\controller;
-use libs\system\Controller; 
+use libs\system\Controller;
 use src\model\RegionDB;
 
 class RegionController extends Controller
@@ -11,24 +11,24 @@ class RegionController extends Controller
 
     }
 
-    public function add(){
-       
+    public function add()
+    {
+
         $tdb = new RegionDB();
-        if(isset($_POST['btnAjouter']))
-        {
+        if (isset($_POST['btnAjouter'])) {
             extract($_POST);
             $data['ok'] = 0;
-            if(!empty($nom)){
-                
+            if (!empty($nom)) {
+
                 $regionObject = new Region();
-                
+
                 $regionObject->setNom(addslashes($nom));
 
                 $ok = $tdb->addRegion($regionObject);
                 $data['ok'] = $ok;
             }
             return $this->view->load("region/add", $data);
-        }else{
+        } else {
             return $this->view->load("region/add");
         }
     }
@@ -36,9 +36,7 @@ class RegionController extends Controller
     {
         // //$regions = array("r1","r2","r3");
         $rdb = new RegionDB();
-        $data['regions'] = $rdb->findAll(); 
-        return $this->view->load("region/getAll",$data);
+        $data['regions'] = $rdb->findAll();
+        return $this->view->load("region/getAll", $data);
     }
 }
-
-?>
